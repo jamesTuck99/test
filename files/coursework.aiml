@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>Where is * #</pattern>
+    
+    <template>
+        <think><set name = "state"><star /></set></think>
+        
+        <condition name = "state" value = "Bristol">In the South-West of England</condition>
+        <condition name = "state" value = "London">Somewhere east of Bristol</condition>
+        <condition name = "state" value = "Cardiff">In Wales</condition>
+        <condition name = "state" value = "UWE">In north Bristol</condition>
+        <condition name = "state" value = "beauty">In the eye of the beholder</condition>
+        <condition name = "state" value = "bot">I do not have an answer for that</condition>
+        <condition name = "followupWhere" value = "bristol">
+            <condition name ="state" value = "it">In the South-West of England</condition>
+        </condition>
+        <condition name = "state" value ="keynsham"> I do not know where keynsham is</condition>
+        <think><set name = "followupWhere" value =""></set></think>
+        
+    </template>
+    
+  </category>
+  
+  <category>
+      <pattern> whereabouts is * #</pattern>
+      <template><srai>Where is <star /></srai></template>
+  </category>
+  
+  <category>
+      <pattern> tell me where * is #</pattern>
+      <template><srai>Where is <star /></srai></template>
+  </category>
+  
+    <category>
+      <pattern>please please tell me where * is </pattern>
+      <template><srai>Where is <star /></srai></template>
+  </category>
+  
+  <category>
+      <pattern>what is *</pattern>
+      
+       <template>
+        <think><set name = "state"><star /></set></think>
+        
+        <condition name = "state" value = "the population of Bristol">The population of Bristol is over 450000</condition>
+        <condition name = "state" value = "the population of London">The population of London is about 8.7 million</condition>
+        <condition name = "state" value = "the population of Cardiff">The population of Cardiff is over 360000</condition>
+        <condition name = "state" value = "the population of Keynsham">I do not know what the population of Keynsham<think><set name = "followup">kenpop</set></think></condition>
+        <condition name = "state" value = "the population of Space">I do not know what the population of space<think><set name = "followup">space</set></think></condition>
+        <condition name = "state" value = "Beauty">A subjective judgment evoked by an emotional response</condition>
+        <condition name = "state" value = "UWE">I do not have an answer for that</condition>
+        
+        <condition name = "state" value = "Bristol"> Bristol is a city <think><set name = "followupWhere">bristol</set></think> </condition>
+        <condition name = "state" value = "London">The population of Bristol is over 450000</condition>
+        
+    </template>
+  </category>
+  
+  <category>
+    <pattern>whats the population of</pattern>
+    <template>Test</template>
+</category>
+
+  <category>
+    <pattern>*</pattern>
+    <template>
+         <think><set name = "state"><star /></set></think>
+         
+        <condition name = "state" value ="why not">    
+            <condition name = "followup" value ="kenpop">Because it is too hard to count the residents of Keynsham </condition>
+            <condition name = "followup" value ="kenWhat">Because I do not have a category to connect me to a mapping service</condition>
+            <condition name = "followup" value ="space"> Because it is too hard to count the residents of</condition>
+        </condition>
+        
+    </template>
+  </category>
+  
+
+  
+
+</aiml>
